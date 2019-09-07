@@ -5,7 +5,7 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 4500;
+var PORT = process.env.PORT || 4502;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -22,7 +22,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // // Routes
-// require("./routes/apiRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 
 var syncOptions = { force: false };
@@ -45,3 +45,19 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 module.exports = app;
+var passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/success', (req, res) => res.send("Welcome " + req.query.username + "!!"));
+app.get('/error', (req, res) => res.send("error logging in"));
+
+passport.serializeUser(function(user, cb) {
+    cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb) {
+    User.findById(id, function(err, user) {
+        cb(err, user);
+    });
+});
