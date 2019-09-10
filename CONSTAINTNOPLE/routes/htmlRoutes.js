@@ -9,6 +9,9 @@ module.exports = function(app) {
         app.get("/signup", function(req, res) {
             res.sendFile(path.join(__dirname, "../public/registration.html"))
         });
+        app.get("/home", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/home.html"))
+        });
     }
     //   // Load example page and pass in an example by id
     //   app.get("/example/:id", function(req, res) {

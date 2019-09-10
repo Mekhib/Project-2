@@ -38,7 +38,7 @@
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="button">Submit</button>
             <div id="google" class="g-signin2" data-onsuccess="onSignIn"></div>
         </form>
     </div>
@@ -51,5 +51,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+    $("#button").on("click", (function(event) {
+        event.preventDefault();
+        console.log("you clicked me!")
+        var auth = {
+            email: $("#exampleInputEmail1").val(),
+            password: $("#exampleInputPassword1").val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: "/auth",
+            data: auth
+        }).then(function(response) {
+            console.log(response);
+        })
+    }))
+</script>
 
 </html>
