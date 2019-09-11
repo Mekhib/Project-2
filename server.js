@@ -8,7 +8,7 @@ var path = require('path');
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 4503;
+var PORT = process.env.PORT || 6452;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -22,38 +22,6 @@ app.use(
         saveUninitialized: true
     })
 );
-
-
-function isAuthenticated(req, res, next) {
-    if (req.session.loggedin) {
-        return next();
-    }
-    res.redirect('/');
-}
-app.post("/auth", function(req, res) {
-    var email = req.body.email;
-    var password = req.body.password;
-    if (email && password) {
-        db.profiles.findOne({
-            where: {
-                email: req.body.email,
-                password: req.body.password
-            }
-        }).then((results) => {
-            if (results) {
-                req.session.loggedin = true;
-                req.session.id = results.id;
-                req.session.user = results;
-                console.log(req.session);
-                res.json(req.session.user);
-            } else {
-                res.send('Incorrect Username and/or Password!');
-            }
-
-        })
-    }
-    //INSERT ELSE STATMENT IF USER DOES NOT PUT IN AN EMAIL OR PASSWORD!
-});
 // Handlebars
 app.engine(
     "handlebars",

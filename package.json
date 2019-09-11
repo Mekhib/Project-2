@@ -3,11 +3,15 @@
     "version": "1.0.0",
     "description": "Project 2 Starter",
     "main": "server.js",
+    "engines": {
+        "node": "10.15.3"
+    },
     "scripts": {
         "start": "node server.js",
         "lint": "eslint --quiet .",
         "fix": "eslint --fix .",
-        "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+        "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit",
+        "mocha": "SET NODE_ENV=test mocha"
     },
     "license": "ISC",
     "dependencies": {
