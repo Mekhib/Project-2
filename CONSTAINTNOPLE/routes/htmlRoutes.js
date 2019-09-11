@@ -10,7 +10,7 @@ module.exports = function(app) {
             res.sendFile(path.join(__dirname, "../public/registration.html"))
         });
         app.get("/home", function(req, res) {
-            res.sendFile(path.join(__dirname, "../public/home.html"))
+            res.sendFile(path.join(__dirname, "../public/js/Untitled-1.html"))
         });
     }
     //   // Load example page and pass in an example by id
