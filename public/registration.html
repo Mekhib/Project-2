@@ -8,18 +8,17 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./Style/login.css">
     <title>Sign-Up</title>
 </head>
 
-<body background="./Images/abstract-minimal-blur-4k_1551646032.jpg">
+<body>
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Constant Contacts</span>
     </nav>
     <div class="jumbotron">
-        <img class="img-thumbnail" src="./Images/IMG_0.HEIC" width="300" height="300" alt="Thumbnail image">
         <h1 class="display-4">Sign Up</h1>
-        <p class="lead">Welcome to Constant Contacts</p>
+        <p class="lead">Welcome to Constant Contacts. We promise to never share your information to 3rd party companies.</p>
         <hr class="my-4">
         <form>
             <div class="form-group">
@@ -40,8 +39,29 @@
                 <label for="exampleInputLastName1">Last Name</label>
                 <input type="lastName" class="form-control" id="exampleInputLastName1" placeholder="Lazaar">
             </div>
+            <div class="form-group">
+                <label for="exampleCellPhoneNumeber1">Cell Phone Number</label>
+                <input type="lastName" class="form-control" id="exampleCellPhoneNumeber1" placeholder="111-111-1111">
+            </div>
+            <div class="form-group">
+                <label for="exampleHomePhoneNumber1">Home Phone Number</label>
+                <input type="lastName" class="form-control" id="exampleHomePhoneNumber1" placeholder="Optional">
+            </div>
+            <div class="form-group">
+                <label for="exampleWorkPhoneNumber1">Work Phone Number</label>
+                <input type="lastName" class="form-control" id="exampleWorkPhoneNumber1" placeholder="Optional">  
+            </div>
+            <div class="form-group">
+                <label for="exampleWebsite1">Website</label>
+                <input type="lastName" class="form-control" id="exampleWebsite1" placeholder="Optional">  
+            </div>
+            <div class="form-group">
+                <label for="exampleInputSocialMedia1">Social Media</label>
+                <input type="lastName" class="form-control" id="exampleInputSocialMedia1" placeholder="Optional">  
+            </div>
             <br>
-            <button type="submit" class="btn btn-primary" id="button">Create Account</button>
+            <button type="button" class="btn btn-outline-dark">Create Account</button>   
+
         </form>
     </div>
 
@@ -54,12 +74,18 @@
 <script>
     $("#button").on("click", (function(event) {
         event.preventDefault();
+        console.log(password)
         console.log("you clicked me!")
         var info = {
             email: $("#exampleInputEmail1").val(),
             password: $("#exampleInputPassword1").val(),
             firstName: $("#exampleInputFirstName1").val(),
-            lastname: $("#exampleInputLastName1").val()
+            lastName: $("#exampleInputLastName1").val(),
+            cellPhoneNumber: $("#exampleCellPhoneNumeber1").val(),
+            workPhoneNumber: $("#exampleWorkPhoneNumber1").val(),
+            webSite:$("#exampleWebsite1").val(),
+            socialMedia:$("#exampleInputSocialMedia1").val(),
+
         }
         $.ajax({
             type: "POST",
