@@ -46,16 +46,18 @@ module.exports = function(app) {
                     res.json(dbPost);
                 });
         });
-        app.post("/searchresults", isAuthenticated, function(req, res) {
-            console.log(req.body);
+        app.get("/searchresults/:email", function(req, res) {
+            console.log("searchresults")
+            console.log(req.params.email)
             db.profiles.findAll({
                 where: {
-                    email: req.body.email
+                    email: req.params.email
                 }
-            }).then(function(response) {
-                res.json(response)
             })
+            .then(function(response) {
+            res.json(response)
         })
+    })
         app.post("/searchresults", isAuthenticated,
             function(req, res) {
                 console.log(req.body);
