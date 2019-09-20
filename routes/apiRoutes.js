@@ -46,30 +46,17 @@ module.exports = function(app) {
                     res.json(dbPost);
                 });
         });
-        app.get("/searchresults/:email", function(req, res) {
-            console.log("searchresults")
-            console.log(req.params.email)
+        app.post("/searchresults", function(req, res) {
             db.profiles.findAll({
-                where: {
-                    email: req.params.email
-                }
-            })
-            .then(function(response) {
-            res.json(response)
-        })
-    })
-        app.post("/searchresults", isAuthenticated,
-            function(req, res) {
-                console.log(req.body);
-                db.profiles.findAll({
                     where: {
                         email: req.body.email
                     }
-                }).then(function(response) {
+                })
+                .then(function(response) {
                     res.json(response)
                 })
-            })
-        app.post("/userpage", isAuthenticated, function(req, res) {
+        })
+        app.get("/userpage", isAuthenticated, function(req, res) {
             console.log(req.body);
             db.profiles.findone({
                 where: {

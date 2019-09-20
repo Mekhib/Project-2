@@ -12,6 +12,9 @@ module.exports = function(app) {
         app.get("/home", function(req, res) {
             res.sendFile(path.join(__dirname, "../public/Untitled-1.html"))
         });
+        app.get("/searchresults", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/searchresults.html"))
+        });
     }
     //   // Load example page and pass in an example by id
     //   app.get("/example/:id", function(req, res) {

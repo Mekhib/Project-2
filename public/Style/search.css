@@ -1,0 +1,20 @@
+#image {
+    width: 10em;
+    height: 10em;
+    padding: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-left: 40em;
+}
+
+.form-control-lg {
+    height: calc(1.5em + 1rem + 2px);
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    margin-left: 21em;
+    width: 30em;
+}
