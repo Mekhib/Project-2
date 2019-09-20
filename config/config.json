@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Longpass1",
+        "password": "brightlight",
         "database": "contacts_db",
         "host": "localhost",
         "dialect": "mysql"
