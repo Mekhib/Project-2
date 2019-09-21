@@ -2,12 +2,12 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-        function isAuthenticated(req, res, next) {
-            if (req.session.loggedin) {
-                return next();
-            }
-            res.redirect('/');
-        }
+        // function isAuthenticated(req, res, next) {
+        //     if (req.session.loggedin) {
+        //         return next();
+        //     }
+        //     res.redirect('/');
+        // }
         app.post("/auth", function(req, res) {
             var email = req.body.email;
             var password = req.body.password;
@@ -35,11 +35,12 @@ module.exports = function(app) {
 
         app.post("/signupinfo", function(req, res) {
             console.log(req.body);
+            console.log(req.body.password)
             db.profiles.create({
                     email: req.body.email,
                     first_name: req.body.firstName,
                     last_name: req.body.lastname,
-                    password: req.body.password
+                    Password: req.body.password
                         //Password is not being inserted into database! find out why!
                 })
                 .then(function(dbPost) {
@@ -56,22 +57,58 @@ module.exports = function(app) {
                     res.json(response)
                 })
         })
-        app.get("/userpage", isAuthenticated, function(req, res) {
+        app.post("/userpage", function(req, res) {
+
             console.log(req.body);
-            db.profiles.findone({
+            db.profiles.findOne({
                 where: {
                     id: req.body.id
                 }
             }).then(function(response) {
-                res.json(response)
+                res.json(response);
             })
+
         })
-        app.post("/sendfriendrequest", isAuthenticated, function(req, res) {
+        app.get("/redirect", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/userpage.html"))
+
+        })
+        app.post("/sendfriendrequest", function(req, res) {
             db.request.create({
                 requester: req.body.requester,
                 recipient: req.body.recipient
             }).then(function(response) {
                 res.json(response);
+            })
+        })
+        app.post("/friendrequests", function(req, res) {
+            db.request.fineAll({
+                where: {
+                    recipient: app.session.id,
+                    status: 1
+                }
+            }).then(function(response) {
+                console.log(response);
+                //for loop here!
+            })
+        })
+        app.post("/requestedfriends", function(req, res) {
+            db.request.fineAll({
+                where: {
+                    requester: app.session.id
+                }
+            }).then(function(response) {
+                res.send(response)
+                    //for loop here!
+            })
+
+        })
+        app.post("/acceptedfriends", function(req, res) {
+            db.friends.create({
+                friend1
+            }).then(function(response) {
+                console.log(response);
+                //for loop here!
             })
         })
     }
@@ -80,7 +117,7 @@ module.exports = function(app) {
     //         return next();
     //     }
     //     res.redirect('/');
-    // }
+    //  }
     // app.post("/auth", function(req, res) {
     //     var email = req.body.email;
     //     var password = req.body.password;

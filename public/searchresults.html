@@ -57,27 +57,31 @@
             url: "/searchresults",
             data: email,
         }).then(function(response) {
+            var data = response
             for (i = 0; i < response.length; i++) {
                 var html = '<article class ="card"><h2>' + response[i].first_name + response[i].last_name + '</h2><p>' + response[i].email + "</p><p>" + response[i].age + '</p><button id="profile">View profile</button></article>';
                 $("#results").append(html);
-                var ids = response[i].id
-            }
-            //ask about for loop issues!
-            $("#profile").on("click", function(event) {
-                console.log("you clicked me")
-                event.preventDefault();
-                console.log(id)
-                var id = {
-                    id: ids
-                }
-                $.ajax({
-                    type: "GET",
-                    url: "/userpage",
-                }).then(function(response) {
-                    console.log(response);
+                $("#profile").on("click", function(event) {
+                    console.log("you clicked me");
+                    event.preventDefault();
+                    var id = {
+                        id: data[0].id
+                    }
+                    console.log(id.id)
+                    $.ajax({
+                        type: "POST",
+                        url: "/userpage",
+                        data: id
+                    }).then(function(response) {
+                        console.log(response);
+                        localStorage.setItem("userdata", JSON.stringify(response))
+                        location.href = "./userpage.html"
+                    })
                 })
-            })
+            }
+
         })
+
 
     })
 </script>

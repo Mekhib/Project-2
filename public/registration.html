@@ -49,18 +49,18 @@
             </div>
             <div class="form-group">
                 <label for="exampleWorkPhoneNumber1">Work Phone Number</label>
-                <input type="lastName" class="form-control" id="exampleWorkPhoneNumber1" placeholder="Optional">  
+                <input type="lastName" class="form-control" id="exampleWorkPhoneNumber1" placeholder="Optional">
             </div>
             <div class="form-group">
                 <label for="exampleWebsite1">Website</label>
-                <input type="lastName" class="form-control" id="exampleWebsite1" placeholder="Optional">  
+                <input type="lastName" class="form-control" id="exampleWebsite1" placeholder="Optional">
             </div>
             <div class="form-group">
                 <label for="exampleInputSocialMedia1">Social Media</label>
-                <input type="lastName" class="form-control" id="exampleInputSocialMedia1" placeholder="Optional">  
+                <input type="lastName" class="form-control" id="exampleInputSocialMedia1" placeholder="Optional">
             </div>
             <br>
-            <button type="button" class="btn btn-outline-dark">Create Account</button>   
+            <button type="button" class="btn btn-outline-dark" id="button">Create Account</button>
 
         </form>
     </div>
@@ -74,7 +74,6 @@
 <script>
     $("#button").on("click", (function(event) {
         event.preventDefault();
-        console.log(password)
         console.log("you clicked me!")
         var info = {
             email: $("#exampleInputEmail1").val(),
@@ -83,10 +82,11 @@
             lastName: $("#exampleInputLastName1").val(),
             cellPhoneNumber: $("#exampleCellPhoneNumeber1").val(),
             workPhoneNumber: $("#exampleWorkPhoneNumber1").val(),
-            webSite:$("#exampleWebsite1").val(),
-            socialMedia:$("#exampleInputSocialMedia1").val(),
+            webSite: $("#exampleWebsite1").val(),
+            socialMedia: $("#exampleInputSocialMedia1").val(),
 
         }
+        console.log(info)
         $.ajax({
             type: "POST",
             url: "/signupinfo",
