@@ -66,6 +66,12 @@
             data: auth
         }).then(function(response) {
             console.log(response);
+            $.ajax({
+                type: "GET",
+                url: "/redirect"
+            }).then(function(response) {
+                console.log(response);
+            })
         })
     }))
 </script>

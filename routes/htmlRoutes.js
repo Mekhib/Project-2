@@ -15,6 +15,12 @@ module.exports = function(app) {
         app.get("/searchresults", function(req, res) {
             res.sendFile(path.join(__dirname, "../public/searchresults.html"))
         });
+        app.get("/userresult", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/userpage.html"))
+        });
+        app.get("/redirecting", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/userpage.html"))
+        });
     }
     //   // Load example page and pass in an example by id
     //   app.get("/example/:id", function(req, res) {
