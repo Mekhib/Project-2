@@ -83,6 +83,16 @@
             console.log(response)
         }
     })
+    $.ajax({
+        type: "POST",
+        url: "/all2"
+    }).then(function(response) {
+        for (i = 0; i < response.length; i++) {
+            var html = '<article class ="card"><h2>' + response[i].first_name + response[i].last_name + '</h2><p>' + response[i].email + "</p><p>" + response[i].age + '</p><button id="user">View user</button></article>';
+            $("#all").append(html)
+            console.log(response)
+        }
+    })
     var id;
     $("#searchBtn").on("click", (function(event) {
         event.preventDefault();
@@ -98,7 +108,7 @@
         }).then((response) => {
             var data = response
             for (i = 0; i < response.length; i++) {
-                var html = '<article class ="card"><h2>' + response[i].first_name + response[i].last_name + '</h2><p>' + response[i].email + "</p><p>" + response[i].age + '</p><button class="send">Send Friend Request!</button></article>';
+                var html = '<article class ="card"><h2>' + response[i].first_name + response[i].last_name + '</h2><p>' + response[i].email + "</p><p>" + response[i].age + '</p><button class="send">Accept Friend Request!</button></article>';
                 $("#results").append(html);
                 var id = response[i].id
             }

@@ -151,6 +151,21 @@ module.exports = function(app) {
                 }).then(profiles => res.json(profiles))
             })
         })
+        app.post("/all2", function(req, res) {
+            db.friends.findAll({
+                where: {
+                    friend2: req.session.user.id
+                }
+            }).then((allfriends => {
+                return allfriends.map((list) => list.id)
+            })).then((ids) => {
+                db.profiles.findAll({
+                    where: {
+                        id: ids
+                    }
+                }).then(profiles => res.json(profiles))
+            })
+        })
     }
     // function isAuthenticated(req, res, next) {
     //     if (req.session.loggedin) {
