@@ -8,102 +8,116 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="Style/login.css">
+    <link rel="stylesheet" href="Style/search.css">
     <title>projects.html</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Constant Contact</a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-    <div class="card-group">
-        <div class="card">
-            <img class="card-img-top" src="./Assests/Constant Contact.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Friend Requests</h5>
-                <button type="button" class="btn btn-outline-dark">Add Friends</button>
+    <div id="nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/friendrequest" id="friends">Friend request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="./Assests/Steve-Buscemi.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Steve Busheme</h5>
-                <lil>
-                    Phone Number: 443-418-5273
-                </lil>
-                <button type="button" class="btn btn-outline-dark">View More</button>
-            </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src="./Assests/lauryn_hill_photo_by_anthony_barboza_archive_photos_getty_114465492.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Lauren Hill</h5>
-                <br>
-                <lil>
-                    Phone Number: 267-765-5671
-                </lil>
-                <button type="button" class="btn btn-outline-dark">View </button>
+        </nav>
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">My friends</a>
+        </nav>
+    </div>
+    <div id="all">
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="results">
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Friend Added!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+                <div class="modal-body">
+                    <p>Friend added! Happy contacting</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="/public/js/contacts.js"></script>
 
 </html>
-<title>projects.html</title>
-</head>
-
-<body background="../Images/abstract-minimal-blur-4k_1551646032.jpg">
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">Constant Contact</a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn" action="/searchresults" method="GET">Search</button>
-        </form>
-
-
-        <div class="desc" id="newContact">
-            <!-- <a target="_blank" href="img_5terre.jpg">
-                  <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
-                </a> -->
-            <div class="desc"></div>
-            <!-- <div class="desc"></div> -->
-
-        </div>
-
-
-
-
-        <!-- Optional JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/contacts.js"></script>
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <script>
+    $.ajax({
+        type: "POST",
+        url: "/all"
+    }).then(function(response) {
+        for (i = 0; i < response.length; i++) {
+            var html = '<article class ="card"><h2>' + response[i].first_name + response[i].last_name + '</h2><p>' + response[i].email + "</p><p>" + response[i].age + '</p><button id="user">View user</button></article>';
+            $("#all").append(html)
+            console.log(response)
+        }
+    })
+    var id;
     $("#searchBtn").on("click", (function(event) {
         event.preventDefault();
         var query = $("#search").val();
         location.href = "/searchresults"
-        $.ajax({
-            type: "GET",
-            url: "/searchresults/" + query,
-        }).then(function(response) {
-            console.log(response);
-        })
     }))
+    $("#friends").on("click", (event) => {
+        $("#results").show();
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/friendrequests",
+        }).then((response) => {
+            var data = response
+            for (i = 0; i < response.length; i++) {
+                var html = '<article class ="card"><h2>' + response[i].first_name + response[i].last_name + '</h2><p>' + response[i].email + "</p><p>" + response[i].age + '</p><button class="send">Send Friend Request!</button></article>';
+                $("#results").append(html);
+                var id = response[i].id
+            }
+            $(".send").on("click", (event) => {
+                console.log("you clicked me")
+                var id = {
+                    id: id
+                }
+                event.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/acceptedfriends",
+                    data: id
+                }).then((response) => {
+                    $("#myModal").modal();
+                })
+            })
+        })
+    })
 </script>
 
 </html>

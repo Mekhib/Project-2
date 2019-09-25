@@ -19,9 +19,28 @@
     width: 30em;
 }
 
-.card-body {
+.card {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.25rem;
     height: 17em;
+    background-color: rgb(98, 107, 107);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 30px;
+}
+
+body {
+    background-image: url("http://papers.co/wallpaper/papers.co-sa52-blurred-white-blur-wallpaper-25-wallpaper.jpg")
+}
+
+#user {
+    background: "white";
+    width: 180px;
+    padding: 4px 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 3px;
 }
