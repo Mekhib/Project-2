@@ -18,8 +18,8 @@ module.exports = function(app) {
         app.get("/userresult", function(req, res) {
             res.sendFile(path.join(__dirname, "../public/userpage.html"))
         });
-        app.get("/redirecting", function(req, res) {
-            res.sendFile(path.join(__dirname, "../public/userpage.html"))
+        app.get("/friendrequest", function(req, res) {
+            res.sendFile(path.join(__dirname, "../public/FriendRequest.html"))
         });
     }
     //   // Load example page and pass in an example by id
